@@ -21,7 +21,7 @@ export class ItemService {
     }
 
     deleteItem(itemId) {
-        return this.http.delete(this.url + 'item', itemId).toPromise();
+        return this.http.delete(this.url + 'item/' + itemId).toPromise();
     }
 
     updateItem(item) {

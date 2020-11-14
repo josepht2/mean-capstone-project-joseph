@@ -27,7 +27,7 @@ export class UserService {
     }
 
     deleteUser(userId) {
-        return this.http.delete(this.url + 'user', userId).toPromise();
+        return this.http.delete(this.url + 'user/' + userId).toPromise();
     }
 
     updateUser(user) {

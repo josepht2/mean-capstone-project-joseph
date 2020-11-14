@@ -34,8 +34,8 @@ app.get('/api/users', (req, res) => {
     userModel.find().then(users => res.status(200).json(users));
 });
 
-app.delete('/api/user', (req, res) => {
-    userModel.remove(req.body).then(val => res.status(200).json(val));
+app.delete('/api/user/:uid', (req, res) => {
+    userModel.deleteOne({_id: req.params.uid}).then(val => res.status(200).json(val));
 });
 
 app.put('/api/user', (req, res) => {
@@ -59,8 +59,8 @@ app.get('/api/items', (req, res) => {
     itemModel.find().then(items => res.status(200).json(items));
 });
 
-app.delete('/api/item', (req, res) => {
-    itemModel.remove(req.body).then(val => res.status(200).json(val));
+app.delete('/api/item/:iid', (req, res) => {
+    itemModel.deleteOne({_id: req.params.iid}).then(val => res.status(200).json(val));
 });
 
 app.put('/api/item', (req, res) => {
@@ -96,7 +96,7 @@ app.get('/api/carts/:user', (req, res) => {
 
 app.delete('/api/cart/:id', (req, res) => {
     let id = req.params.id;
-    cartModel.remove({_id: id}).then(val => res.status(200).json(val));
+    cartModel.deleteOne({_id: id}).then(val => res.status(200).json(val));
 });
 
 app.post('/api/wishlist', (req, res) => {
@@ -111,7 +111,7 @@ app.get('/api/wishlists/:user', (req, res) => {
 
 app.delete('/api/wishlist/:id', (req, res) => {
     let id = req.params.id;
-    wishListModel.remove({_id: id}).then(val => res.status(200).json(val));
+    wishListModel.deleteOne({_id: id}).then(val => res.status(200).json(val));
 });
 
 app.listen(3000, () => {

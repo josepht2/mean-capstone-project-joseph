@@ -61,13 +61,11 @@ export class AdminPortalComponent implements OnInit {
 
   costValidator(control: FormControl) {
     let result = {invalidCost: true};
-    if(this && this.mode === 'items') {
-      let cost = control.value;
-      let costLength = cost.length;
-      let isNumber = Number(cost);
-      if(cost && !isNaN(isNumber) && cost.includes('.') && cost.indexOf('.') === (costLength - 3)){
-        result = null;
-      }
+    let cost = String(control.value);
+    let costLength = cost.length;
+    let isNumber = Number(cost);
+    if(cost && !isNaN(isNumber) && cost.includes('.') && cost.indexOf('.') === (costLength - 3)){
+      result = null;
     }
     return result;
   }
@@ -152,6 +150,7 @@ export class AdminPortalComponent implements OnInit {
     this.userService.deleteUser(userId).then( res => {
       this.userService.getAllUsers().then(users => {
         this.users = users;
+        this.cancelUpdate();
       });
     })
   }
@@ -160,6 +159,7 @@ export class AdminPortalComponent implements OnInit {
     this.itemService.deleteItem(itemId).then( res => {
       this.itemService.findAllItems().then(items => {
         this.items = items;
+        this.cancelUpdate();
       });
     })
   }
@@ -171,6 +171,7 @@ export class AdminPortalComponent implements OnInit {
     this.userService.updateUser(this.newUser).then( res => {
       this.userService.getAllUsers().then(users => {
         this.users = users;
+        this.cancelUpdate();
       });
     })
   }
@@ -181,6 +182,7 @@ export class AdminPortalComponent implements OnInit {
     this.itemService.updateItem(this.newItem).then( res => {
       this.itemService.findAllItems().then(items => {
         this.items = items;
+        this.cancelUpdate();
       });
     })
   }
