@@ -1,0 +1,97 @@
+.homeBtn{
+    width: 12.5%;
+    margin-top: 5%;
+}
+
+body{
+    margin-top: 5%;
+}
+
+.modeSelect{
+    width: 30%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(245, 246, 247);
+}
+
+th{
+    text-align: center;
+}
+
+.tableBtn{
+    width: 40%;
+}
+
+form{
+    margin-top: 4%;
+}
+
+.newFormInputGroup{
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+.newFormItemInput{
+    width: 90%;
+    margin-left: 55%;
+    margin-right: 5%;
+}
+
+.newFormItemCostDiv{
+    margin-left: 10%;
+}
+
+.newFormItemInputCost{
+    width: 90%;
+    margin-right: 5%;
+}
+
+.newFormItemBtnDiv{
+    margin-left: -3%;
+}
+
+.newFormItemCreateBtn{
+    width: 50%;
+}
+
+.newFormItemUpdateBtn{
+    width: 40%;
+}
+
+.newFormItemCancelBtn{
+    width: 40%;
+    margin-left: 2%;
+}
+
+.newFormUserInput{
+    width: 20%;
+    margin-right: 5%;
+}
+
+.newFormUserSelect{
+    width: 20%;
+    margin-right: 5%;
+}
+
+.newFormUserCreateBtn{
+    width: 15%;
+}
+
+.newFormUserUpdateBtn{
+    width: 12%;
+    margin-left: -4%;
+}
+
+.newFormUserCancelBtn{
+    width: 12%;
+    margin-left: 2%;
+}

@@ -1,0 +1,15 @@
+body{
+    margin-top: 10%;
+}
+
+.loginBtn{
+    margin-top: 2.5%;
+    width: 25%;
+    font-size: 110%;
+}
+
+.signupBtn{
+    margin-top: 5%;
+    width: 25%;
+    font-size: 110%;
+}

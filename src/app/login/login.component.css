@@ -1,0 +1,28 @@
+.homeBtn{
+    width: 12.5%;
+    margin-top: 5%;
+}
+
+body{
+    margin-top: 5%;
+}
+
+.usernameInput{
+    margin-top: 4%;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.passwordInput{
+    margin-top: 2%;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loginBtn{
+    margin-top: 2.5%;
+    width: 25%;
+    font-size: 110%;
+}

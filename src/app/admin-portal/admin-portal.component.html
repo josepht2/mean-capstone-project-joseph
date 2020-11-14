@@ -1,0 +1,76 @@
+<button class="btn btn-info homeBtn" (click)="goHome()">Home</button>
+<body>
+<h1>Admin Portal: {{user.username}}</h1>
+<select class="form-control modeSelect" (change)="onModeChange($event)">
+    <option value="items">Items</option>
+    <option value="users">Users</option>
+</select>
+<div *ngIf="mode === 'items'">
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Cost</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of items">
+            <td>{{item.name}}</td>
+            <td>{{item.cost}}</td>
+            <td><button class="btn btn-warning tableBtn" (click)="editItem(item)">Edit</button></td>
+            <td><button class="btn btn-danger tableBtn" (click)="deleteItem(item._id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+<form [formGroup]="itemForm">
+    <div class="row">
+    <div class="col col-sm-3">
+    <input class="form-control newFormItemInput" type="text" name="name" formControlName="name" placeholder="Name">
+    </div>
+    <div class="col col-sm-3 newFormItemCostDiv">
+    <input class="form-control newFormItemInputCost" type="text" name="cost" formControlName="cost" placeholder="Cost">
+    <p class="costError" *ngIf="cost.invalid && cost.errors.invalidCost">Cost must be a number in the format: xx.xx (e.g. 10.00)</p>
+    </div>
+    <div class="col col-sm-4 newFormItemBtnDiv">
+    <button class="btn btn-success newFormItemCreateBtn" *ngIf="method === 'create'" [disabled]="itemForm.invalid" (click)="createItem()">Create</button>
+    <button class="btn btn-success newFormItemUpdateBtn" *ngIf="method === 'update'" [disabled]="itemForm.invalid" (click)="updateItem()">Update</button>
+    <button class="btn btn-danger newFormItemCancelBtn" *ngIf="method === 'update'" (click)="cancelUpdate()">Cancel</button>
+    </div>
+    </div>
+</form>
+</div>
+<div *ngIf="mode === 'users'">
+<table class="table">
+    <thead>
+        <th scope="col">Username</th>
+        <th scope="col">Role</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.username}}</td>
+            <td>{{user.role}}</td>
+            <td><button class="btn btn-warning tableBtn" (click)="editUser(user)">Edit</button></td>
+            <td><button class="btn btn-danger tableBtn" (click)="deleteUser(user._id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+<form [formGroup]="userForm">
+    <div class="input-group newFormInputGroup">
+    <input class="form-control newFormUserInput" type="text" name="username" formControlName="username" placeholder="Username">
+    <input class="form-control newFormUserInput" type="password" name="password" formControlName="password" placeholder="Password">
+    <select class="form-control newFormUserSelect" name="role" formControlName="role">
+        <option value="role">Role</option>
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+    </select>
+    <button class="btn btn-success newFormUserCreateBtn" *ngIf="method === 'create'" [disabled]="userForm.invalid" (click)="createUser()">Create</button>
+    <button class="btn btn-success newFormUserUpdateBtn" *ngIf="method === 'update'" [disabled]="userForm.invalid" (click)="updateUser()">Update</button>
+    <button class="btn btn-danger newFormUserCancelBtn" *ngIf="method === 'update'" (click)="cancelUpdate()">Cancel</button>
+    </div>
+</form>
+</div>
+</body>

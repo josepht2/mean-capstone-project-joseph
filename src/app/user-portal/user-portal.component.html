@@ -1,0 +1,80 @@
+<button class="btn btn-info homeBtn" (click)="goHome()">Home</button>
+<body>  
+<h1>User Portal: {{user.username}}</h1>
+<div class="modeBtns">
+<button class="btn btn-light modeBtn" (click)="changeMode('allItems')">All Items</button>
+<button class="btn btn-light modeBtn" (click)="changeMode('purchases')">Purchases</button>
+<button class="btn btn-light modeBtn" (click)="changeMode('cart')">Cart</button>
+<button class="btn btn-light modeBtn" (click)="changeMode('wishList')">Wish List</button>
+</div>
+<div class="modeDiv" *ngIf="mode === 'allItems'">
+<h2>All Items</h2>
+<table class="table">
+    <thead>
+        <th scope="col">Name</th>
+        <th scope="col">Cost</th>
+        <th scope="col">Purchase</th>
+        <th scope="col">Add To Cart</th>
+        <th scope="col">Add To Wish List</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of items">
+            <td>{{item.name}}</td>
+            <td>{{item.cost}}</td>
+            <td><button class="btn btn-primary tableBtn" (click)="addPurchase(item)">Purchase</button></td>
+            <td><button class="btn btn-primary tableBtn" (click)="addCart(item)">Add To Cart</button></td>
+            <td><button class="btn btn-primary tableBtn" (click)="addWishList(item)">Add To Wish List</button></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div class="modeDiv" *ngIf="mode === 'purchases'">
+    <h2>Purchases</h2>
+    <table class="table">
+        <thead>
+            <th scope="col">Name</th>
+            <th scope="col">Cost</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let purchase of purchases">
+                <td>{{purchase.name}}</td>
+                <td>{{purchase.cost}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modeDiv" *ngIf="mode === 'cart'">
+    <h2>Cart</h2>
+    <table class="table">
+        <thead>
+            <th scope="col">Name</th>
+            <th scope="col">Cost</th>
+            <th scope="col">Remove</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cart">
+                <td>{{item.name}}</td>
+                <td>{{item.cost}}</td>
+                <button class="btn btn-danger tableRemoveBtn" (click)="deleteCart(item._id)">Remove</button>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modeDiv" *ngIf="mode === 'wishList'">
+    <h2>Wish List</h2>
+    <table class="table">
+        <thead>
+            <th scope="col">Name</th>
+            <th scope="col">Cost</th>
+            <th scope="col">Remove</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of wishList">
+                <td>{{item.name}}</td>
+                <td>{{item.cost}}</td>
+                <button class="btn btn-danger tableRemoveBtn" (click)="deleteWishList(item._id)">Remove</button>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>

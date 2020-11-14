@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+//ng serve --proxy-config proxy.config.json
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
